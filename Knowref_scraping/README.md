@@ -1,10 +1,10 @@
 
 ## [Dataset Pre-processing]
 
-** Generated Dataset Location
+## Generated Dataset location ##
 The test dataset is in an orphan branch of this project, called =Knowref_dataset=.
 
-** Idea
+## Idea ##
 
 Produce a dataset with similar properties as winograd schema sentences.
 
@@ -14,7 +14,7 @@ The resulting dataset may contain sentences where the original target of the ref
 
 E.g. we pull "Kevin yelled at Melissa because he was angry" which can later be changed automatically to "Kevin yelled at Jim because he was angry"--Thus they become WSC-style, common sense requiring sentences.
 
-** Procedure
+## Procedure ##
 
 General remark: Most of the scripts use [[https://pypi.python.org/pypi/joblib][joblib]] to parallelize processing. For
 debugging, it is advisable to set it to one. To speed up processing, set the
