@@ -28,9 +28,9 @@ All steps are also accessible from =pipeline.bash=.
    sentences, and filter sentences which contain numbers, symbols, etc.
    Usage:
    
-```
-python split_sentences.py --mode {mode} {inputs_dir} {output_filename}
-```
+   ```
+   python split_sentences.py --mode {mode} {inputs_dir} {output_filename}
+   ```
 
    where =inputs_dir= is the directory where =WikiExtractor.py= stored the
    pre-processed wikipedia dump and =output_filename= is a filename of your
@@ -53,9 +53,9 @@ python split_sentences.py --mode {mode} {inputs_dir} {output_filename}
    [[http://linux.die.net/man/1/nice][=nice=]] to reduce effects on other users.
 
 4. Run the [[http://nlp.stanford.edu/software/tagger.shtml#Download][Stanford POS tagger]] on the resulting set. Download it, unzip it, and use
-   #+BEGIN_SRC shell
+   ```
    java -cp "*:lib/*" edu.stanford.nlp.tagger.maxent.MaxentTagger -model models/english-left3words-distsim.tagger -textFile {input_file} -outputFormat slashTags -outputFile {output_file}
-   #+END_SRC
+   ```
    This should be done after about 10-15 minutes. There is an =-nthreads= option
    in case this is too slow.
 
@@ -65,9 +65,9 @@ python split_sentences.py --mode {mode} {inputs_dir} {output_filename}
    (e.g. “The red car … but the green car…” would not be a repetition of “car”)
 
    This is done by =filter_postagged.py=, Usage:
-   #+BEGIN_SRC shell
+   ```
    $ python filter_postagged.py [--n-jobs {N}] --mode {noun|pronoun} {postagger output file} {output_filename}
-   #+END_SRC
+   ```
     
    This takes about 20 minutes.
 
@@ -76,17 +76,17 @@ python split_sentences.py --mode {mode} {inputs_dir} {output_filename}
    can use the =split= command to do this for us, but before, we need to remove
    information about the candidates and the pronoun substitution position from
    the output of the last script:
-   #+BEGIN_SRC shell
+   ```
    $ perl -ne '/^(.*?)\|/; $_=$1; s/[_\[\]]/ /g; print "$_\n"' < {filter_postagged output} > wsc_inputs.txt
    $ split -l 100 wsc_inputs.txt sentences/sents
    $ find sentences > filelist.txt
    $ java -cp "*" -Xmx6g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner,parse -threads 32 -filelist filelist.txt
-   #+END_SRC
+   ```
 
 7. Final parsing step. CoreNLP parser. It messes up in a few cases where CoreNLP and nltk disagree about sentence splitting.
-   #+BEGIN_SRC shell
+   ```
       $ python filter_parsed_pronoun_knowref.py "{corenlp glob}" {output filename}
-   #+END_SRC
+   ```
    The glob is something like =stanford-corenlp-version/sents*.out=.
    This script:
    - finds the candidates, connective, and pronouns and filters through only sentences with personned noun phrases, the connective and a pronoun.
