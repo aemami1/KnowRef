@@ -18,13 +18,13 @@ E.g. we pull "Kevin yelled at Melissa because he was angry" which can later be c
 
 General remark: Most of the scripts use [[https://pypi.python.org/pypi/joblib][joblib]] to parallelize processing. For
 debugging, it is advisable to set it to one. To speed up processing, set the
-=--n_jobs= parameter to a value larger than one.
+**--n_jobs** parameter to a value larger than one.
 
-All steps are also accessible from =pipeline.bash=.
+All steps are also accessible from **pipeline.bash**.
 
 1. Download the source text, e.g. 2016 wikipedia dump
-2. Use =wikidump.py= to process the 12GB (bzip2’ed) to a cleaned up 4.3GB (bzip2’ed)
-3. Use =split_sentences.py= to remove paragraphs containing lists etc., split
+2. Use **wikidump.py** to process the 12GB (bzip2’ed) to a cleaned up 4.3GB (bzip2’ed)
+3. Use **split_sentences.py** to remove paragraphs containing lists etc., split
    sentences, and filter sentences which contain numbers, symbols, etc.
    Usage:
    
@@ -32,8 +32,8 @@ All steps are also accessible from =pipeline.bash=.
    python split_sentences.py --mode {mode} {inputs_dir} {output_filename}
    ```
 
-   where =inputs_dir= is the directory where =WikiExtractor.py= stored the
-   pre-processed wikipedia dump and =output_filename= is a filename of your
+   where **inputs_dir** is the directory where **WikiExtractor.py** stored the
+   pre-processed wikipedia dump and **output_filename** is a filename of your
    choosing. 
 
    The sentences are searched for a regular expression containing a simplified
@@ -64,7 +64,7 @@ All steps are also accessible from =pipeline.bash=.
    there are too many other confounding NPs, whether they differ in adjectives
    (e.g. “The red car … but the green car…” would not be a repetition of “car”)
 
-   This is done by =filter_postagged.py=, Usage:
+   This is done by **filter_postagged.py**, Usage:
    ```
    $ python filter_postagged.py [--n-jobs {N}] --mode {noun|pronoun} {postagger output file} {output_filename}
    ```
@@ -73,7 +73,7 @@ All steps are also accessible from =pipeline.bash=.
 
 6. Run the [[https://stanfordnlp.github.io/CoreNLP/][CoreNLP Parser]] on the resulting set. This seems to work fastest
    (judging by CPU usage) if the input is first split into multiple files. We
-   can use the =split= command to do this for us, but before, we need to remove
+   can use the **split** command to do this for us, but before, we need to remove
    information about the candidates and the pronoun substitution position from
    the output of the last script:
    ```
@@ -87,7 +87,7 @@ All steps are also accessible from =pipeline.bash=.
    ```
       $ python filter_parsed_pronoun_knowref.py "{corenlp glob}" {output filename}
    ```
-   The glob is something like =stanford-corenlp-version/sents*.out=.
+   The glob is something like **stanford-corenlp-version/sents*.out**.
    This script:
    - finds the candidates, connective, and pronouns and filters through only sentences with personned noun phrases, the connective and a pronoun.
 
