@@ -2,7 +2,7 @@
 ## [Dataset Pre-processing]
 
 ## Generated Dataset location ##
-The test dataset is in an orphan branch of this project, called =Knowref_dataset=.
+The test dataset is in an orphan branch of this project, called **Knowref_dataset**.
 
 ## Idea ##
 
@@ -39,8 +39,8 @@ All steps are also accessible from **pipeline.bash**.
    The sentences are searched for a regular expression containing a simplified
    form of the Winograd Schema pattern, e.g.
 
-   =Noun1…Noun2…connective…Noun[1 or 2]=  (mode =noun=)
-   =Noun1…Noun2…connective…pronoun=  (mode =pronoun=)
+   * **Noun1…Noun2…connective…Noun[1 or 2]**  (mode **noun**)
+   * **Noun1…Noun2…connective…pronoun**  (mode **pronoun**)
 
    In both cases, there shouldn’t be a pronoun before the connective, to ensure
    we don’t reference a sentence from before the current one.
@@ -49,14 +49,14 @@ All steps are also accessible from **pipeline.bash**.
    words from the sentence which occur in Penn Treebank as non-nouns, and
    compile the leftover words into the candidates-regex.
 
-   The process takes about 20 minutes using around 32 cores of =rohan=. Use
-   [[http://linux.die.net/man/1/nice][=nice=]] to reduce effects on other users.
+   The process takes about 20 minutes using around 32 cores of **rohan**. Use
+   [[http://linux.die.net/man/1/nice] to reduce effects on other users.
 
 4. Run the [[http://nlp.stanford.edu/software/tagger.shtml#Download][Stanford POS tagger]] on the resulting set. Download it, unzip it, and use
    ```
    java -cp "*:lib/*" edu.stanford.nlp.tagger.maxent.MaxentTagger -model models/english-left3words-distsim.tagger -textFile {input_file} -outputFormat slashTags -outputFile {output_file}
    ```
-   This should be done after about 10-15 minutes. There is an =-nthreads= option
+   This should be done after about 10-15 minutes. There is an **-nthreads** option
    in case this is too slow.
 
 5. The POS tags provide further information about the candidate noun phrases,
