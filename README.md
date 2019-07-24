@@ -2,7 +2,7 @@
 # AUTHORS: Ali Emami, Paul Trichelair, Adam Trischler, Kaheer Suleman, Hannes Schulz, and Jackie Cheung
 
 # Paper link: 
-[Nesta CMS] https://arxiv.org/abs/1811.01747
+https://arxiv.org/abs/1811.01747
 
 # Abstract:
 
