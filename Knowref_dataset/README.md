@@ -1,4 +1,4 @@
-## [The KnowRef Coreference Corpus]##
+## [The KnowRef Coreference Corpus]
 
 
 The dataset is generated using Reddit comments (2006-2018), 2018 English Wikipedia, and Opensubtitles.
