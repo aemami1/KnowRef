@@ -9,4 +9,4 @@ We introduce a new benchmark for coreference resolution and NLI, Knowref, that t
 
 =Knowref_dataset= contains the test data and information required to generate the training data (as well a Readme with more details). 
 
-=Knowref_scraping= contains code for the scraping of the corpus from the text sources (as well as a Readme with instructions)
+=Knowref_scraping= contains code for the scraping of the corpus from the text sources (as well as a Readme with reproduce instructions)
