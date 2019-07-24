@@ -1,6 +1,8 @@
 The test data is distribited under the CC BY-SA 3.0 license, located here: https://creativecommons.org/licenses/by-sa/3.0/.
 It contains sentences extracted from Wikipedia and OpenSubtitles corpus (the compiled corpus is downloadable here: http://opus.nlpl.eu/OpenSubtitles-v2018.php; the data itself belongs to http://www.opensubtitles.org/).
 
+Please see paper for more details on how the dataset was created.
+
 The rest of the files (code for scraping the sentences) is distributed under the MIT License, below:
 
 MIT License
