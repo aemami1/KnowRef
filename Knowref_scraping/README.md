@@ -1,5 +1,5 @@
 
-* Dataset Pre-processing
+Dataset Pre-processing
 
 ** Generated Dataset Location
 The test dataset is in an orphan branch of this project, called =Knowref_dataset=.
@@ -23,13 +23,15 @@ debugging, it is advisable to set it to one. To speed up processing, set the
 All steps are also accessible from =pipeline.bash=.
 
 1. Download the source text, e.g. 2016 wikipedia dump
-2. Use =wikidump.py= to process the 12GB (bzip2íed) to a cleaned up 4.3GB (bzip2íed)
+2. Use =wikidump.py= to process the 12GB (bzip2‚Äôed) to a cleaned up 4.3GB (bzip2‚Äôed)
 3. Use =split_sentences.py= to remove paragraphs containing lists etc., split
    sentences, and filter sentences which contain numbers, symbols, etc.
    Usage:
-   #+BEGIN_SRC shell
-   $ python split_sentences.py --mode {mode} {inputs_dir} {output_filename}
-   #+END_SRC
+   
+```
+python split_sentences.py --mode {mode} {inputs_dir} {output_filename}
+```
+
    where =inputs_dir= is the directory where =WikiExtractor.py= stored the
    pre-processed wikipedia dump and =output_filename= is a filename of your
    choosing. 
@@ -37,13 +39,13 @@ All steps are also accessible from =pipeline.bash=.
    The sentences are searched for a regular expression containing a simplified
    form of the Winograd Schema pattern, e.g.
 
-   =Noun1ÖNoun2ÖconnectiveÖNoun[1 or 2]=  (mode =noun=)
-   =Noun1ÖNoun2ÖconnectiveÖpronoun=  (mode =pronoun=)
+   =Noun1‚Ä¶Noun2‚Ä¶connective‚Ä¶Noun[1 or 2]=  (mode =noun=)
+   =Noun1‚Ä¶Noun2‚Ä¶connective‚Ä¶pronoun=  (mode =pronoun=)
 
-   In both cases, there shouldnít be a pronoun before the connective, to ensure
-   we donít reference a sentence from before the current one.
+   In both cases, there shouldn‚Äôt be a pronoun before the connective, to ensure
+   we don‚Äôt reference a sentence from before the current one.
 
-   We donít want to parse the sentence for nouns yet, instead we just remove all
+   We don‚Äôt want to parse the sentence for nouns yet, instead we just remove all
    words from the sentence which occur in Penn Treebank as non-nouns, and
    compile the leftover words into the candidates-regex.
 
@@ -60,7 +62,7 @@ All steps are also accessible from =pipeline.bash=.
 5. The POS tags provide further information about the candidate noun phrases,
    e.g., whether there actually are nouns, whether they agree in Number, whether
    there are too many other confounding NPs, whether they differ in adjectives
-   (e.g. ìThe red car Ö but the green carÖî would not be a repetition of ìcarî)
+   (e.g. ‚ÄúThe red car ‚Ä¶ but the green car‚Ä¶‚Äù would not be a repetition of ‚Äúcar‚Äù)
 
    This is done by =filter_postagged.py=, Usage:
    #+BEGIN_SRC shell
