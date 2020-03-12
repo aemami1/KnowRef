@@ -14,7 +14,7 @@ networkx==2.2
 nltk==3.4.4
 numpy==1.16.4
 progressbar==2.5
-psutil==5.6.3
+psutil==5.6.6
 PyDispatcher==2.0.5
 PyHamcrest==1.9.0
 requests==2.22.0
