@@ -23,6 +23,6 @@ singledispatch==3.4.0.3
 six==1.12.0
 ujson==1.35
 untangle==1.1.1
-urllib3==1.25.3
+urllib3==1.25.8
 wincertstore==0.2
 zope.interface==4.6.0
