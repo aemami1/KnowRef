@@ -21,7 +21,7 @@ requests==2.22.0
 sexpdata==0.0.3
 singledispatch==3.4.0.3
 six==1.12.0
-ujson==1.35
+ujson==5.2.0
 untangle==1.1.1
 urllib3==1.25.3
 wincertstore==0.2
