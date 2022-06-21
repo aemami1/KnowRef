@@ -12,7 +12,7 @@ joblib==0.13.2
 lxml==4.3.4
 networkx==2.2
 nltk==3.4.4
-numpy==1.16.4
+numpy==1.22.0
 progressbar==2.5
 psutil==5.6.3
 PyDispatcher==2.0.5
